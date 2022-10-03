@@ -2,6 +2,8 @@
 import { quasar } from '@quasar/vite-plugin'
 
 export default defineNuxtConfig({
+  modules: ['@pinia/nuxt'],
+
   css: ['@quasar/extras/material-icons/material-icons.css', '~/assets/styles/quasar.sass'],
 
   build: {
