@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { useMainStore } from './store'
+import { useLangStore } from './store'
+import { useI18n } from 'vue-i18n'
+import { watchEffect } from '#imports'
 
-const mainStore = useMainStore()
+const i18n = useI18n()
+const langStore = useLangStore()
+
+watchEffect(() => {
+  i18n.locale.value = langStore.language
+})
 </script>
 
 <template>
-  <div>
-    <h1>Hello Nuxt 3!</h1>
-    <q-btn color="primary" label="Increment" @click="mainStore.increment()" />
-    <h6>{{ mainStore.counter }}</h6>
-    <q-space />
-    <h6>{{ mainStore.getDoubleCounter }}</h6>
-  </div>
+  <NuxtPage />
 </template>

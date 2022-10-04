@@ -15,3 +15,15 @@ export const useMainStore = defineStore('main', {
     },
   },
 })
+
+export const useLangStore = defineStore('language', {
+  state: () => ({
+    language: 'en',
+  }),
+  actions: {
+    setLanguage(lang: string) {
+      this.language = lang
+    },
+  },
+  persist: true,
+})
